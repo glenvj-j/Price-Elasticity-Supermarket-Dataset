@@ -336,7 +336,7 @@ response = requests.get(url)
 
 # Decode bytes and wrap in StringIO
 df = pd.read_csv(StringIO(response.content.decode('utf-8')))
-st.write("Columns:", df.columns.tolist())
+
 df_loss =  pd.read_csv('https://raw.githubusercontent.com/glenvj-j/Price-Elasticity-Supermarket-Dataset/refs/heads/main/Dataset/annex4.csv')
 df['Event'] = df['Event'].fillna('Non-Event')
 
