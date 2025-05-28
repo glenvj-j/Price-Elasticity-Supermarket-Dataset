@@ -1,21 +1,6 @@
-scikit-learn==1.5.1
-
+scikit-learn==1.6.1
 numpy==1.26.4
-
-
 pandas==2.2.2
-
-
 requests==2.32.3
-
-
 streamlit== 1.37.1
 requests==2.32.3
-
-imbalanced-learn==0.12.3
-
-category-encoders==2.6.4
-
-beautifulsoup4 == beautifulsoup4
-
-Pillow == 10.4.0
