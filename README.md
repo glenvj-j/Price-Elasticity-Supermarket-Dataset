@@ -4,7 +4,11 @@ This project explores **price elasticity** using real-world supermarket sales da
 
 ## 📌 Objective
 
-To build a predictive model that helps estimate optimal pricing by forecasting quantity sold under three scenarios:
+Main Objective : `Can we know for each product the best price we can put to get the maximum profit?`
+
+How we will do?
+
+Build a predictive model that helps estimate optimal pricing by forecasting quantity sold under three scenarios:
 - **Worst Case**
 - **Likely Case**
 - **Best Case**
