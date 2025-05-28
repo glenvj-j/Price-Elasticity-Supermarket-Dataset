@@ -34,10 +34,6 @@ $$
 ## 🚀 Deployment
 
 This project is deployed using **Streamlit**, allowing interactive exploration of pricing scenarios and predicted profitability.
+<img width="1481" alt="Screenshot 2025-05-28 at 13 23 50" src="https://github.com/user-attachments/assets/7f0b4f11-21da-4a76-a378-dfe2f54c696e" />
 
-
-🚀 Deployment
-This project is deployed using Streamlit, allowing interactive exploration of pricing scenarios and predicted profitability.
-
-👉 Live Demo: TBD
-🛠 Code: TBD
+👉 Live Demo: [Check Here](https://price-elasticity-supermarket.streamlit.app/)
