@@ -341,7 +341,6 @@ df['Event'] = df['Event'].fillna('Non-Event')
 selected_year = st.sidebar.multiselect('Select Year (Can Choose 1 or more)',df['Year'].unique())
 
 df_filtered = df[(df['Year'].isin(selected_year))].copy()
-st.write("Columns:", df_filtered.columns.tolist())
 
 # df_above_100_data = df_filtered['Item Code'].value_counts().reset_index()
 
