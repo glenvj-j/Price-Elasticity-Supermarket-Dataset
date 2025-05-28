@@ -1,8 +1,9 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
+import requests
+from io import StringIO
 
 st.set_page_config(
     page_title="Price Elasticity Calculator",
@@ -330,19 +331,33 @@ def show_prediction(df_grouped):
         st.plotly_chart(fig)
 
         return max_lower,max_median,max_upper
+url = "https://raw.githubusercontent.com/glenvj-j/Price-Elasticity-Supermarket-Dataset/main/Dataset/clean_df.csv"
+response = requests.get(url)
 
-# Load Dataset
-df = pd.read_csv('../Dataset/clean_df.csv')
-df_loss =  pd.read_csv('../Dataset/annex4.csv')
+# Decode bytes and wrap in StringIO
+df = pd.read_csv(StringIO(response.content.decode('utf-8')))
+st.write("Columns:", df.columns.tolist())
+df_loss =  pd.read_csv('https://raw.githubusercontent.com/glenvj-j/Price-Elasticity-Supermarket-Dataset/refs/heads/main/Dataset/annex4.csv')
 df['Event'] = df['Event'].fillna('Non-Event')
 
 selected_year = st.sidebar.multiselect('Select Year (Can Choose 1 or more)',df['Year'].unique())
 
-df_filtered = df[(df['Sale or Return']=='sale')&(df['Discount (Yes/No)']=='No')&(df['Year'].isin(selected_year))].copy()
+df_filtered = df[(df['Year'].isin(selected_year))].copy()
 
-df_above_100_data = df_filtered['Item Code'].value_counts().reset_index()
+# df_above_100_data = df_filtered['Item Code'].value_counts().reset_index()
 
-selected_product_code = st.sidebar.selectbox('Select Product',df_above_100_data[df_above_100_data['count']>300]['Item Code'],index=None)
+# selected_product_code = st.sidebar.selectbox('Select Product',df_above_100_data[df_above_100_data['count']>300]['Item Code'],index=None)
+
+# Count item code appearances
+item_counts = df_filtered['Item Code'].value_counts().reset_index()
+item_counts.columns = ['Item Code', 'Count']  # Rename for clarity
+
+# Filter to only those with >300 appearances
+frequent_items = item_counts[item_counts['Count'] > 300]['Item Code']
+
+# Sidebar product selection
+selected_product_code = st.sidebar.selectbox('Select Product', frequent_items.tolist(), index=None)
+
 
 try :
     st.sidebar.success(df_filtered[df_filtered['Item Code']==selected_product_code]['Item Name'].unique()[0])
