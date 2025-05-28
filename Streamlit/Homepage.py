@@ -331,7 +331,7 @@ def show_prediction(df_grouped):
         st.plotly_chart(fig)
 
         return max_lower,max_median,max_upper
-url = "https://your-csv-url.com/data.csv"
+url = "https://github.com/glenvj-j/Price-Elasticity-Supermarket-Dataset/blob/main/Dataset/clean_df.csv"
 response = requests.get(url)
 
 # Correct way to read CSV from content
