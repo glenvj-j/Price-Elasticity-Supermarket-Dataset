@@ -1,5 +1,8 @@
 # Price Elasticity Supermarket Dataset
 
+![Cover](https://github.com/user-attachments/assets/7fc97d7c-f4e9-4a8d-8f30-1c2c8d5752d5)
+
+
 This project explores **price elasticity** using real-world supermarket sales data to find the **optimal price point** that maximizes profit under various market conditions.
 
 ## 📌 Objective
@@ -39,5 +42,6 @@ This project is deployed using **Streamlit**, allowing interactive exploration o
 🚀 Deployment
 This project is deployed using Streamlit, allowing interactive exploration of pricing scenarios and predicted profitability.
 
-👉 Live Demo: TBD
-🛠 Code: TBD
+<img width="1481" alt="Screenshot 2025-05-28 at 13 23 50" src="https://github.com/user-attachments/assets/bf9c51f2-10b0-47be-b341-ad1a64827220" />
+
+👉 Live Demo: [Check here](https://price-elasticity-supermarket.streamlit.app/)
