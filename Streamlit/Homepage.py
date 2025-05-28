@@ -3,6 +3,7 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 import requests
+from io import StringIO
 
 st.set_page_config(
     page_title="Price Elasticity Calculator",
@@ -330,11 +331,11 @@ def show_prediction(df_grouped):
         st.plotly_chart(fig)
 
         return max_lower,max_median,max_upper
-url = "https://github.com/glenvj-j/Price-Elasticity-Supermarket-Dataset/blob/main/Dataset/clean_df.csv"
+url = "https://your-csv-url.com/data.csv"
 response = requests.get(url)
 
-# Load Dataset
-df = pd.read_csv('response.content')
+# Correct way to read CSV from content
+df = pd.read_csv(StringIO(response.content.decode('utf-8')))
 df_loss =  pd.read_csv('https://raw.githubusercontent.com/glenvj-j/Price-Elasticity-Supermarket-Dataset/refs/heads/main/Dataset/annex4.csv')
 df['Event'] = df['Event'].fillna('Non-Event')
 
