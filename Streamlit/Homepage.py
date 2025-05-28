@@ -335,7 +335,7 @@ url = "https://github.com/glenvj-j/Price-Elasticity-Supermarket-Dataset/blob/mai
 response = requests.get(url)
 
 # Correct way to read CSV from content
-df = pd.read_csv(StringIO(response.content.decode('utf-8')))
+df = pd.read_csv(response.content)
 df_loss =  pd.read_csv('https://raw.githubusercontent.com/glenvj-j/Price-Elasticity-Supermarket-Dataset/refs/heads/main/Dataset/annex4.csv')
 df['Event'] = df['Event'].fillna('Non-Event')
 
