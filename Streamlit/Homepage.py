@@ -331,6 +331,7 @@ def show_prediction(df_grouped):
         return max_lower,max_median,max_upper
 url = "https://raw.githubusercontent.com/glenvj-j/Price-Elasticity-Supermarket-Dataset/main/Dataset/clean_df.csv"
 response = requests.get(url)
+st.write("Columns:", df_filtered.columns.tolist())
 
 # Decode bytes and wrap in StringIO
 df = pd.read_csv(StringIO(response.content.decode('utf-8')))
